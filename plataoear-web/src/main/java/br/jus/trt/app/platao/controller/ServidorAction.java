@@ -38,8 +38,13 @@ public class ServidorAction extends CrudActionBase<Servidor, Long, ServidorCrudF
 	@Override
 	protected void configSearch(Filter<? extends Servidor> filter) {
 		super.configSearch(filter);
-		
-		// configurando consulta para realização de fetch das dependências
+		fetchDependencies(filter);
+	}
+
+	/**
+	 * Configura um filtro QBE com os fetches básicos necessários para carregar um Servidor
+	 */
+	private void fetchDependencies(Filter<? extends Servidor> filter) {
 		filter.addFetch("cidade.uf");
 	}
 
@@ -55,7 +60,7 @@ public class ServidorAction extends CrudActionBase<Servidor, Long, ServidorCrudF
 	@Override
 	protected void configLoad(Servidor entidade, Filter<Servidor> loadFilter) {
 		super.configLoad(entidade, loadFilter);
-		loadFilter.addFetch("cidade.uf");
+		fetchDependencies(loadFilter);
 	}
 	
 	public CidadeUfController getCidadeUfController() {
