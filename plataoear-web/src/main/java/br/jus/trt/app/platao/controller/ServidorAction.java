@@ -1,5 +1,6 @@
 package br.jus.trt.app.platao.controller;
 
+import javax.annotation.PostConstruct;
 import javax.enterprise.context.Conversation;
 import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
@@ -35,6 +36,7 @@ public class ServidorAction extends CrudActionBase<Servidor, Long, ServidorCrudF
     private CidadeUfController cidadeUfController;
 
     @Override
+    @PostConstruct
     public void init() {
         super.init();
 

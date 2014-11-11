@@ -11,12 +11,12 @@
 
 	<h:form>
 		<f:validateBean disabled="true">
-
+			#{servidorAction.example == null}
 			<trt:inputText id="nome" label="Nome"
 				value="#{servidorAction.example.nome}" />
 			<p>
-				<h:commandButton value="Pesquisar" />
-				<h:commandButton action="#{servidorAction.prepareToInsert()}"
+				<h:commandButton value="Pesquisar"/>
+				<h:commandButton action="#{servidorAction.prepareToInsert()}" 
 					value="Adicionar" />
 			</p>
 
